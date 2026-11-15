@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.monedero.viewcontrollers.ClienteViewController" prefWidth="1080" prefHeight="720">
+    <children>
+        <Label text="Gestión de clientes" layoutX="24" layoutY="20" textFill="#315e82">
+            <font>
+                <Font name="System Bold" size="20"/>
+            </font>
+        </Label>
+        <Label text="Documento" layoutX="24" layoutY="70" textFill="#334155">
+            <font>
+                <Font name="System" size="13"/>
+            </font>
+        </Label>
+        <Label text="Nombre" layoutX="300" layoutY="70" textFill="#334155">
+            <font>
+                <Font name="System" size="13"/>
+            </font>
+        </Label>
+        <TextField fx:id="txtDocumento" layoutX="24" layoutY="96" prefWidth="240" prefHeight="34" promptText=""/>
+        <TextField fx:id="txtNombre" layoutX="300" layoutY="96" prefWidth="420" prefHeight="34" promptText=""/>
+        <Button text="Registrar cliente" onAction="#registrarCliente" layoutX="24" layoutY="155" prefWidth="175" prefHeight="34"/>
+        <Button text="Actualizar cliente" onAction="#actualizarCliente" layoutX="215" layoutY="155" prefWidth="175" prefHeight="34"/>
+        <Button text="Eliminar cliente" onAction="#eliminarCliente" layoutX="405" layoutY="155" prefWidth="175" prefHeight="34"/>
+        <Button text="Limpiar" onAction="#limpiarCampos" layoutX="595" layoutY="155" prefWidth="125" prefHeight="34"/>
+        <Label text="Clientes registrados" layoutX="24" layoutY="215" textFill="#334155">
+            <font>
+                <Font name="System Bold" size="16"/>
+            </font>
+        </Label>
+        <TableView fx:id="tblClientes" layoutX="24" layoutY="250" AnchorPane.leftAnchor="24" AnchorPane.rightAnchor="24" AnchorPane.bottomAnchor="110">
+            <placeholder><Label text="Sin clientes registrados"/></placeholder>
+            <columns>
+                <TableColumn fx:id="tbcDocumento" text="Documento" prefWidth="200"/>
+                <TableColumn fx:id="tbcNombre" text="Nombre" prefWidth="440"/>
+                <TableColumn fx:id="tbcPuntos" text="Puntos" prefWidth="150"/>
+                <TableColumn fx:id="tbcRango" text="Rango" prefWidth="180"/>
+            </columns>
+        </TableView>
+        <Label fx:id="lblResultado" text="Seleccione un cliente de la tabla para actualizarlo o eliminarlo." wrapText="true" AnchorPane.leftAnchor="24" AnchorPane.rightAnchor="24" AnchorPane.bottomAnchor="50" textFill="#315e82"/>
+    </children>
+</AnchorPane>

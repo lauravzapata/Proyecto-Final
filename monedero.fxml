@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.monedero.viewcontrollers.MonederoViewController" prefWidth="1080" prefHeight="720">
+    <children>
+        <Label text="Cliente" layoutX="24" layoutY="12" textFill="#334155">
+            <font>
+                <Font name="System" size="13"/>
+            </font>
+        </Label>
+        <Label text="Monedero" layoutX="320" layoutY="12" textFill="#334155">
+            <font>
+                <Font name="System" size="13"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="cmbCliente" layoutX="24" layoutY="36" prefWidth="270" prefHeight="34" promptText="Seleccione un cliente"/>
+        <ComboBox fx:id="cmbMonedero" layoutX="320" layoutY="36" prefWidth="270" prefHeight="34" promptText="Seleccione un monedero"/>
+        <Label text="Saldo: $0.00" layoutX="630" layoutY="40" textFill="#315e82" fx:id="lblSaldo">
+            <font>
+                <Font name="System Bold" size="20"/>
+            </font>
+        </Label>
+        <Label text="Puntos: 0" layoutX="630" layoutY="82" textFill="#334155" fx:id="lblPuntos">
+            <font>
+                <Font name="System" size="14"/>
+            </font>
+        </Label>
+        <Label text="Rango: -" layoutX="810" layoutY="82" textFill="#334155" fx:id="lblRango">
+            <font>
+                <Font name="System" size="14"/>
+            </font>
+        </Label>
+        <TextField fx:id="txtNombreMonedero" layoutX="24" layoutY="84" prefWidth="270" prefHeight="34" promptText="Nombre de nuevo monedero"/>
+        <Button text="Crear monedero" onAction="#registrarMonedero" layoutX="320" layoutY="84" prefWidth="200" prefHeight="34"/>
+        <Separator layoutX="24" layoutY="135" prefWidth="1000"/>
+        <Label text="Depósitos y retiros" layoutX="24" layoutY="150" textFill="#315e82">
+            <font>
+                <Font name="System Bold" size="18"/>
+            </font>
+        </Label>
+        <Label text="Monto" layoutX="24" layoutY="197" textFill="#334155">
+            <font>
+                <Font name="System" size="13"/>
+            </font>
+        </Label>
+        <TextField fx:id="txtMonto" layoutX="90" layoutY="190" prefWidth="190" prefHeight="34" promptText="Ejemplo: 1000"/>
+        <Button text="Depositar dinero" onAction="#depositar" layoutX="300" layoutY="190" prefWidth="185" prefHeight="34"/>
+        <Button text="Retirar" onAction="#retirar" layoutX="505" layoutY="190" prefWidth="140" prefHeight="34"/>
+        <Label text="Transferencias" layoutX="24" layoutY="240" textFill="#334155">
+            <font>
+                <Font name="System Bold" size="16"/>
+            </font>
+        </Label>
+        <ComboBox fx:id="cmbDestinatario" layoutX="24" layoutY="270" prefWidth="270" prefHeight="34" promptText="Cliente destino"/>
+        <ComboBox fx:id="cmbMonederoDestino" layoutX="320" layoutY="270" prefWidth="270" prefHeight="34" promptText="Monedero destino"/>
+        <Button text="Transferir" onAction="#transferir" layoutX="620" layoutY="270" prefWidth="170" prefHeight="34"/>
+        <TabPane fx:id="tabOperaciones" layoutY="325" AnchorPane.leftAnchor="24" AnchorPane.rightAnchor="24" AnchorPane.bottomAnchor="135" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Historial">
+                    <content>
+                        <AnchorPane prefWidth="1000" prefHeight="220">
+                            <children>
+                                <TableView fx:id="tblTransacciones" AnchorPane.topAnchor="12" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="58">
+                                    <placeholder><Label text="Sin movimientos"/></placeholder>
+                                    <columns>
+                                        <TableColumn fx:id="tbcCodigo" text="Código" prefWidth="70"/>
+                                        <TableColumn fx:id="tbcFecha" text="Fecha" prefWidth="120"/>
+                                        <TableColumn fx:id="tbcTipo" text="Tipo" prefWidth="220"/>
+                                        <TableColumn fx:id="tbcMonto" text="Monto" prefWidth="150"/>
+                                        <TableColumn fx:id="tbcComision" text="Comisión" prefWidth="120"/>
+                                        <TableColumn fx:id="tbcEstado" text="Estado" prefWidth="180"/>
+                                    </columns>
+                                </TableView>
+                                <TextField fx:id="txtCodigo" promptText="Código de transacción" prefWidth="200" prefHeight="32" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="12"/>
+                                <Button text="Revertir transacción" onAction="#revertir" prefHeight="32" prefWidth="180" AnchorPane.leftAnchor="220" AnchorPane.bottomAnchor="12"/>
+                                <Button text="Ver historial" onAction="#historial" prefHeight="32" prefWidth="150" AnchorPane.leftAnchor="420" AnchorPane.bottomAnchor="12"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Puntos y beneficios">
+                    <content>
+                        <AnchorPane prefWidth="1000" prefHeight="220">
+                            <children>
+                                <Label text="Canje de puntos" layoutX="20" layoutY="15" textFill="#334155">
+                                    <font>
+                                        <Font name="System Bold" size="16"/>
+                                    </font>
+                                </Label>
+                                <Button text="100 puntos: descuento" onAction="#canjear100" layoutX="20" layoutY="55" prefWidth="240" prefHeight="34"/>
+                                <Button text="500 puntos: retiros gratis" onAction="#canjear500" layoutX="290" layoutY="55" prefWidth="260" prefHeight="34"/>
+                                <Button text="1000 puntos: bono $50" onAction="#canjear1000" layoutX="580" layoutY="55" prefWidth="240" prefHeight="34"/>
+                                <Button text="Historial de puntos" onAction="#historialPuntos" layoutX="20" layoutY="115" prefWidth="240" prefHeight="34"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Programadas">
+                    <content>
+                        <AnchorPane prefWidth="1000" prefHeight="220">
+                            <children>
+                                <Label text="Monto y destino: campos superiores." layoutX="20" layoutY="10" textFill="#334155">
+                                    <font>
+                                        <Font name="System" size="13"/>
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="cmbTipoProgramada" layoutX="20" layoutY="40" prefWidth="180" prefHeight="34" promptText=""/>
+                                <DatePicker fx:id="dpFecha" layoutX="220" layoutY="40" prefWidth="180" prefHeight="34"/>
+                                <ComboBox fx:id="cmbFrecuencia" layoutX="420" layoutY="40" prefWidth="150" prefHeight="34" promptText=""/>
+                                <Button text="Programar" onAction="#programar" layoutX="590" layoutY="40" prefWidth="150" prefHeight="34"/>
+                                <Button text="Ejecutar vencidas" onAction="#ejecutarProgramadas" layoutX="760" layoutY="40" prefWidth="190" prefHeight="34"/>
+                                <Button text="Ver programadas" onAction="#verProgramadas" layoutX="20" layoutY="100" prefWidth="180" prefHeight="34"/>
+                                <TextField fx:id="txtCodigoProgramada" layoutX="220" layoutY="100" prefWidth="190" prefHeight="34" promptText="Código de programada"/>
+                                <Button text="Cancelar programada" onAction="#cancelarProgramada" layoutX="430" layoutY="100" prefWidth="230" prefHeight="34"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Reportes">
+                    <content>
+                        <AnchorPane prefWidth="1000" prefHeight="220">
+                            <children>
+                                <Label text="Consultas" layoutX="20" layoutY="15" textFill="#334155">
+                                    <font>
+                                        <Font name="System Bold" size="16"/>
+                                    </font>
+                                </Label>
+                                <Button text="Reporte de gastos" onAction="#reporte" layoutX="20" layoutY="55" prefWidth="220" prefHeight="34"/>
+                                <Button text="Ver notificaciones" onAction="#verNotificaciones" layoutX="270" layoutY="55" prefWidth="220" prefHeight="34"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <TextArea fx:id="txtSalida" editable="false" wrapText="true" promptText="Resultado de la operación" prefHeight="105" AnchorPane.leftAnchor="24" AnchorPane.rightAnchor="24" AnchorPane.bottomAnchor="12"/>
+    </children>
+</AnchorPane>

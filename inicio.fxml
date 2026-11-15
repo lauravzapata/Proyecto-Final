@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.monedero.viewcontrollers.InicioViewController" prefWidth="1120" prefHeight="840">
+    <children>
+        <Label text="Monedero virtual" layoutX="70" layoutY="90" textFill="#315e82">
+            <font>
+                <Font name="System Bold" size="30"/>
+            </font>
+        </Label>
+        <Separator layoutX="70" layoutY="155" prefWidth="920"/>
+        <Label text="Clientes" layoutX="70" layoutY="210" textFill="#334155">
+            <font>
+                <Font name="System Bold" size="20"/>
+            </font>
+        </Label>
+        <Label text="Depósitos y operaciones" layoutX="500" layoutY="210" textFill="#334155">
+            <font>
+                <Font name="System Bold" size="20"/>
+            </font>
+        </Label>
+        <Button text="Clientes" onAction="#abrirClientes" layoutX="70" layoutY="265" prefWidth="300" prefHeight="34"/>
+        <Button text="Monedero" onAction="#abrirMonedero" layoutX="500" layoutY="265" prefWidth="300" prefHeight="34"/>
+        <Label text="Seleccione una opción." layoutX="70" layoutY="420" textFill="#334155">
+            <font>
+                <Font name="System" size="14"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
